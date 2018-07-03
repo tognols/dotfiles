@@ -1,0 +1,9 @@
+URxvt.background: [90]#000000
+URxvt.foreground: #ffffff
+URxvt.intensityStyles: false
+URxvt.font: xft:Droid Sans Mono for Powerline
+URxvt.scrollBar: false
+URxvt.cursorColor: magenta
+URxvt.transparent: true
+URxvt.shading: 40
+URxvt.imLocale: en_US.UTF-8
