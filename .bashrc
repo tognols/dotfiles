@@ -2,6 +2,10 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
+#Path for vim-live-tex-preview
+export PATH=$PATH:~/.vim/bundle/vim-live-latex-preview/bin
+#Path for linuxbrew
+export PATH='/home/linuxbrew/.linuxbrew/bin:/home/linuxbrew/.linuxbrew/sbin':"$PATH"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -105,11 +109,11 @@ fi
 # some more ls aliases
 alias ll='ls -l'
 alias la='ls -A'
-alias l='ls -CF'
 alias em='emacs -nw'
 alias dd='dd status=progress'
 alias _='sudo'
-
+alias python='figlet "It Doesnt exist!" | lolcat'
+alias br='cd /home/linuxbrew/.linuxbrew/bin'
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
