@@ -5,7 +5,9 @@ _i3 (i3-gaps)_
 
 _Vim_
 
-_Zsh (Oh-My-Zsh)_
+_Bashrc_
+
+_Zsh_
 
 _Xresources (rxvt-unicode terminal emulator)_
 And many other stuffs.
