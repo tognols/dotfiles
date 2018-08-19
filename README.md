@@ -1,12 +1,14 @@
 # dotfiles
 These are my configuration files of 
 
-i3 (i3-gaps)
+_i3 (i3-gaps)_
 
-Vim
+_Vim_
 
-Zsh (Oh-My-Zsh)
+_Zsh (Oh-My-Zsh)_
 
-Xresources (rxvt-unicode terminal emulator)
+_Xresources (rxvt-unicode terminal emulator)_
+And many other stuffs.
+So you need these programs for a nice, good, rice
 
 Enjoy this :)
