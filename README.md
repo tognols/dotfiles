@@ -10,6 +10,9 @@ _Bashrc_
 _Zsh_
 
 _Xresources (rxvt-unicode terminal emulator)_
+
+_Polybar_
+
 And many other stuffs.
 So you need these programs for a nice, good, rice
 
