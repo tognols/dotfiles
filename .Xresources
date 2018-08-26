@@ -1,9 +1,0 @@
-URxvt.background: #000000
-URxvt.foreground: #ffffff
-URxvt.intensityStyles: false
-URxvt.font: xft:iosevka-regular:size=11
-URxvt.letterSpace: 0
-URxvt.scrollBar: false
-URxvt.transparent: true
-URxvt.shading: 20
-URxvt.imLocale: it_IT.UTF-8
