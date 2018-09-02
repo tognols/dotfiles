@@ -18,11 +18,11 @@ case "$choice" in
 		mv bashrc $HOME/.bashrc;
 		mv zshrc $HOME/.zshrc;
 		mv XTerm $HOME/XTerm;
-		mv .Xresources $HOME/.Xresources
-		cd ..
-		xrdb -merge .Xresources
+		mv .Xresources $HOME/.Xresources;
+		cd .. ;
+		xrdb -merge .Xresources;
 		echo "Now installing programs i use everyday and other stuffs";
 		echo "";
-		apt-get install ranger w3m-img rxvt-unicode
+		apt-get install ranger w3m-img rxvt-unicode ; exit;;
 	n|N )	echo "Quitting..."; exit;;
 esac
