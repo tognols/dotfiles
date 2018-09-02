@@ -13,6 +13,6 @@ _Xresources (rxvt-unicode terminal emulator)_
 
 _Polybar_
 
-I'm also adding a installer and programming to make a polybar automatic installer for debian
+I'm also adding a installer for the rice for debian
 
 Enjoy this :)
