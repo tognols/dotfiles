@@ -23,6 +23,6 @@ case "$choice" in
 		xrdb -merge .Xresources;
 		echo "Now installing programs i use everyday and other stuffs";
 		echo "";
-		apt-get install ranger w3m-img rxvt-unicode ; exit;;
+		apt-get install ranger w3m-img rxvt-unicode htop lolcat cmatrix; exit;;
 	n|N )	echo "Quitting..."; exit;;
 esac
