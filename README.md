@@ -17,6 +17,6 @@ _Bspwm_
 
 _Sxhkd_
 
-####Installer for Debian ADDED
+#### Installer for Debian ADDED
 
 Enjoy this :)
