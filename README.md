@@ -13,6 +13,10 @@ _Xresources (rxvt-unicode terminal emulator)_
 
 _Polybar_
 
-I'm also adding a installer for Debian
+_Bspwm_
+
+_Sxhkd_
+
+####Installer for Debian ADDED
 
 Enjoy this :)
