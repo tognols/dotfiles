@@ -1,6 +1,8 @@
 # dotfiles
 ## Rice Screen:
-![]()
+![](2018-10-14-130257_1366x768_scrot.png?raw=true)
+- Info:
+  - 
 These are my configuration files of 
 
 _i3 (i3-gaps)_
