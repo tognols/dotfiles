@@ -1,10 +1,16 @@
 # dotfiles
 ## Rice Screen:
 ![](2018-10-14-130257_1366x768_scrot.png?raw=true)
-- Info:
-- Bspwm, Polybar, Walcycle.sh (Script made by Caligula), Terminus, Urxvt
-- bspc config window_gap 35
-- bspc config border_width 5
+Info:
+- **WM**: Bspwm, 
+- **BAR**: Polybar, 
+- **Wal Script**: Walcycle.sh (Script made by Caligula), 
+- **Terminal Font**: Terminus, 
+- **Terminal Emulator**: Urxvt,
+- **Shell**: /bin/bash,
+Bspwm Gaps and Border:
+- _bspc config window_gap 35_
+- _bspc config border_width 5_
 These are my configuration files of 
 
 _i3 (i3-gaps)_
