@@ -1,4 +1,6 @@
 # dotfiles
+## Rice Screen:
+![]()
 These are my configuration files of 
 
 _i3 (i3-gaps)_
