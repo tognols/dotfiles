@@ -13,23 +13,16 @@ Bspwm Gaps and Border:
   - _bspc config window_gap 35_
   - _bspc config border_width 5_
   
-**_Here you can find dotfiles for_** 
+**These configuration are for: ** 
 
-_i3 (i3-gaps)_
-
-_Vim_
-
-_Bashrc_
-
-_Zsh_
-
-_Xresources (rxvt-unicode terminal emulator)_
-
-_Polybar_
-
-_Bspwm_
-
-_Sxhkd_
+  - _i3 (i3-gaps)_
+  - _Vim_
+  - _Bashrc_
+  - _Zsh_
+  - _Xresources (rxvt-unicode terminal emulator)_
+  - _Polybar_
+  - _Bspwm_
+  - _Sxhkd_
 
 #### Installer for Debian ADDED (But still work in progress)
 
