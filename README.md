@@ -13,7 +13,7 @@ Bspwm Gaps and Border:
   - _bspc config window_gap 35_
   - _bspc config border_width 5_
   
-**These configuration are for: ** 
+**List of programs that use these dotfiles**: 
 
   - _i3 (i3-gaps)_
   - _Vim_
