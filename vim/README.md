@@ -1,5 +1,5 @@
 
-###Install vimplug, copy the vimrc file to .vimrc in your home directory and summon :PlugInstall
+### Install vimplug, copy the vimrc file to .vimrc in your home directory and summon :PlugInstall
 
 #### How to install Vim-Plug
 
