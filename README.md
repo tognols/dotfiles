@@ -1,4 +1,14 @@
 # dotfiles
+
+N.B. I just updated my vim configuration but not "standarized" it (A.K.A i need to test in Linux but should work fine) so i put it on the vim/ directory of this repo
+
+Also, it's been a while since i didn't touch this configuration and a lot of things just changed, actually my mainly driver,
+as now, is herbstluftwm in Linux and simply MacOs for daily usage at school (i know this kinda sucks but maybe i'll re-switch
+to linux or BSD in the future).
+I need to completely change this repo and make a theme folders. Also i need to make a install script (maybe working this time)
+for herbstluftwm which does all the stuffs by himself, something like "just download the repo and run the install script"
+These are my plans for the future, don't take the current rice seriously, it was like my first rice and that's all
+
 ## Rice Screen:
 ![](2018-10-14-130257_1366x768_scrot.png?raw=true)
 Info:
