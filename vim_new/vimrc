@@ -1,0 +1,24 @@
+set number
+set guifont=Inconsolata\ Medium:h16
+
+call plug#begin('~/.vim/plugged')
+Plug 'flazz/vim-colorschemes'
+Plug 'itchyny/lightline.vim'
+Plug 'drillbits/nyan-modoki.vim'
+"Plug 'rip-rip/clang_complete'
+Plug 'octol/vim-cpp-enhanced-highlight'
+"Plug 'bfrg/vim-cpp-modern'
+Plug 'nathanaelkane/vim-indent-guides'
+call plug#end()
+
+colorscheme dracula
+set background=dark
+set laststatus=2
+
+hi cCustomFunc  guifg=#66f88d ctermfg=48
+hi cCustomClass gui=reverse guifg=#00FF00
+
+let g:cpp_simple_highlight = 1
+"let c_no_curly_error = 1
+"let g:clang_library_path='/Library/Developer/CommandLineTools/usr/lib/libclang.dylib'
+set ts=2 sw=2 et
