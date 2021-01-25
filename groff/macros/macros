@@ -1,0 +1,29 @@
+.de INITIALIZE
+. TL 
+\\$1
+. AU
+Matteo Tognolo
+. AI
+Istituto Sigmund Freud
+..
+
+.de BL
+. IP \[bu] 2
+..
+
+.de code
+.ft CR
+.sp 1n
+.br
+.nf
+.in +1c
+.nm +1 1 1 -5
+..
+.de /code
+.br
+.sp 1n
+.nm
+.fi
+.ft
+.in
+..
