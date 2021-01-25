@@ -1,5 +1,7 @@
 # dotfiles
 
+*It's been a year since I've posted anything, so, most things combined together will not work. Now I'm using Budgie Desktop and multiple configurations, for laptop bspwm and for desktop i3-gaps, I'll update this repo I swear :')*
+
 N.B. I just updated my vim configuration but not "standarized" it (A.K.A i need to test in Linux but should work fine) so i put it on the vim/ directory of this repo
 
 Also, it's been a while since i didn't touch this configuration and a lot of things just changed, actually my mainly driver,
