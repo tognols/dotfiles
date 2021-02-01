@@ -13,6 +13,7 @@ set shell=bash
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
+Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'flazz/vim-colorschemes'
@@ -39,6 +40,15 @@ set bg=dark
 colorscheme badwolf
 "colorscheme molokai
 
+"Browse tabs
+nnoremap <C-T> :tabnew<CR>  
+nnoremap <C-N> :tabnext<CR>
+nnoremap <C-P> :tabprev<CR>
+nnoremap <C-T>q :tabclose<CR>
+" Airline enable tabline
+let g:airline#extensions#tabline#enabled = 1
+
+" Modern c++ stuff
 let g:cpp_class_scope_highlight = 1
 let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
@@ -99,7 +109,7 @@ set splitbelow
 set splitright
 nmap <silent> <Leader>c    :call TermOpen()<CR>
 nmap <silent> <Leader><Backspace> :call TermOpenRanger()<CR>
-nmap <silent> <Leader>f		:NERDTreeToggle<CR>
+nmap <silent> <Leader>F		:NERDTreeToggle<CR>
 nmap <silent> <Leader>S		:Startify<CR>
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
