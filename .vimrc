@@ -1,6 +1,7 @@
 syntax on
 "set guifont=Menlo:h15
-set guifont=MesloLGS\ NF:h12
+set guifont=FantasqueSansMono\ NF:h11
+set lines=35 columns=150
 set linespace=0
 set number
 set nocompatible
@@ -8,8 +9,8 @@ set guioptions=
 set encoding=utf-8
 set termencoding=utf-8
 
-set term=xterm-256color
-set shell=bash
+"set term=xterm-256color
+set shell=cmd.exe
 call plug#begin('~/.vim/plugged')
 Plug 'tpope/vim-fugitive'
 Plug 'vim-airline/vim-airline'
@@ -40,6 +41,15 @@ set bg=dark
 colorscheme badwolf
 "colorscheme molokai
 
+" To get this work with windows:
+" PlugUpdate
+command! MyPlugUpdate   :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugUpdate
+" PlugInstall
+command! MyPlugInstall  :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugInstall
+" PlugClean
+command! MyPlugClean    :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugClean
+
+
 "Browse tabs
 nnoremap <C-T> :tabnew<CR>  
 nnoremap <C-N> :tabnext<CR>
@@ -54,34 +64,10 @@ let g:cpp_member_variable_highlight = 1
 let g:cpp_class_decl_highlight = 1
 let g:cpp_experimental_template_highlight = 1
 let g:cpp_concepts_highlight = 1
-"let g:startify_custom_header = [
-"	\ '	      _____                    _____                    _____           ',
-"	\ '	     /\    \                  /\    \                  /\    \          ',
-"	\ '	    /::\    \                /::\    \                /::\____\         ',
-"	\ '	    \:::\    \              /::::\    \              /::::|   |         ',
-"	\ '	     \:::\    \            /::::::\    \            /:::::|   |         ',
-"	\ '	      \:::\    \          /:::/\:::\    \          /::::::|   |         ',
-"	\ '	       \:::\    \        /:::/  \:::\    \        /:::/|::|   |         ',
-"	\ '	       /::::\    \      /:::/    \:::\    \      /:::/ |::|   |         ',
-"	\ '	      /::::::\    \    /:::/    / \:::\    \    /:::/  |::|   | _____   ',
-"	\ '	     /:::/\:::\    \  /:::/    /   \:::\ ___\  /:::/   |::|   |/\    \  ',
-"	\ '	    /:::/  \:::\____\/:::/____/  ___\:::|    |/:: /    |::|   /::\____\ ',
-"	\ '	   /:::/    \::/    /\:::\    \ /\  /:::|____|\::/    /|::|  /:::/    / ',
-"	\ '	  /:::/    / \/____/  \:::\    /::\ \::/    /  \/____/ |::| /:::/    /  ',
-"	\ '	 /:::/    /            \:::\   \:::\ \/____/           |::|/:::/    /   ',
-"	\ '	/:::/    /              \:::\   \:::\____\             |::::::/    /    ',
-"	\ '	\::/    /                \:::\  /:::/    /             |:::::/    /     ',
-"	\ '	 \/____/                  \:::\/:::/    /              |::::/    /      ',
-"	\ '	                           \::::::/    /               /:::/    /       ',
-"	\ '	                            \::::/    /               /:::/    /        ',
-"	\ '	                             \::/____/                \::/    /         ',
-"	\ '	                                                       \/____/          ',
-"        \ ]                                                               
-
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
-
+" Startify custom header
 let g:startify_custom_header = [
 	\'	_____	______	__      _	',
 	\'	  |		|				| \     |	',
@@ -90,40 +76,40 @@ let g:startify_custom_header = [
 	\'	  |		|    |  |    \  |	',
 	\'	  |		|____|  |     \_|	',
 	\]
-map ; :Files<CR>
+" Map ; to NerdTreeToggle
+map ; :NERDTreeToggle<CR>
 
-let g:suckless_mappings = {
-\   '<Leader>[sdf]'       :   'SetTilingMode("[sdf]")'    ,
-\   '<Leader>[hjkl]'      :    'SelectWindow("[hjkl]")'   ,
-\   '<Leader>[HJKL]'      :      'MoveWindow("[hjkl]")'   ,
-\'<Leader><C-[hjkl]>'     :    'ResizeWindow("[hjkl]")'   ,
-\   '<Leader>[oO]'        :    'CreateWindow("[sv]")'     ,
-\   '<Leader>w'           :     'CloseWindow()'           ,
-\   '<Leader>[123456789]' :       'SelectTab([123456789])',
-\  '<Leader>t[123456789]' : 'MoveWindowToTab([123456789])',
-\  '<Leader>T[123456789]' : 'CopyWindowToTab([123456789])',
-\}
-let mapleader = "\<Space>"  " best Leader key ever </my2¢>
-let g:suckless_tmap = 1
+" Remap vim leader to Space key
+let mapleader = "\<Space>"  
+
+" Set split stuff
 set splitbelow
 set splitright
+
+" Random bindings for opening terminal and ranger inside terminal 
 nmap <silent> <Leader>c    :call TermOpen()<CR>
 nmap <silent> <Leader><Backspace> :call TermOpenRanger()<CR>
-nmap <silent> <Leader>F		:NERDTreeToggle<CR>
+" Return to Startify
 nmap <silent> <Leader>S		:Startify<CR>
+
+" Airline theme and stuff
 let g:airline_theme='gruvbox'
 let g:airline_powerline_fonts = 1
+
+" NerdTree stuff 
 let g:NERDTreeWinPos = "left"
 let NERDTreeQuitOnOpen = 1
-" autocmd vimenter * Startify 
-" autocmd vimenter * NERDTree
+
+" Checks if NerdTree is the only one window and closes vim if so
 au vimenter * wincmd p
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Groff aliases
+" Groff aliases | unix only for now
 nnoremap <silent> <Leader>m	:!mupdf -I $(dirname %)/output/output.pdf </dev/null &>/dev/null &<CR><CR>
 autocmd BufWritePost *.ms !groff -G -ms % -T pdf > output/output.pdf
 
+
+" DOWN BELOW THE COC.NVIM STUFF AND CONFIGS
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -260,4 +246,7 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 " Resume latest coc list.
 "nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
+" Least but not least-important Tabstop and Backspace key that sometimes needs
+" this config to work well
 set tabstop=2
+set backspace=indent,eol,start
