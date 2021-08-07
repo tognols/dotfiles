@@ -1,23 +1,25 @@
 syntax on
 "set guifont=Menlo:h15
-set guifont=FantasqueSansMono\ NF:h11
-set lines=35 columns=150
+set guifont=MesloLGS\ NF:h12
 set linespace=0
 set number
 set nocompatible
 set guioptions=
 set encoding=utf-8
 set termencoding=utf-8
+set autoread
+set mouse=a
 
-"set term=xterm-256color
-set shell=cmd.exe
+set term=xterm-256color
+set shell=bash
 call plug#begin('~/.vim/plugged')
-Plug 'tpope/vim-fugitive'
-Plug 'vim-airline/vim-airline'
+Plug 'arcticicestudio/nord-vim'
+Plug 'lervag/vimtex'
+Plug 'itchyny/lightline.vim'
 Plug 'preservim/nerdtree'
-Plug 'vim-airline/vim-airline-themes'
 Plug 'altercation/vim-colors-solarized'
 Plug 'flazz/vim-colorschemes'
+Plug 'xuhdev/vim-latex-live-preview'
 Plug 'majutsushi/tagbar'
 Plug 'octol/vim-cpp-enhanced-highlight'
 Plug 'bfrg/vim-cpp-modern'
@@ -30,33 +32,28 @@ Plug 'morhetz/gruvbox'
 Plug 'preservim/nerdtree'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 call plug#end()
-
 set encoding=UTF-8
-
-
-"set termguicolors
-
 set bg=dark
+colorscheme nord
 
-colorscheme badwolf
-"colorscheme molokai
-
-" To get this work with windows:
-" PlugUpdate
-command! MyPlugUpdate   :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugUpdate
-" PlugInstall
-command! MyPlugInstall  :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugInstall
-" PlugClean
-command! MyPlugClean    :set shell=cmd.exe shellcmdflag=/c noshellslash guioptions-=! <bar> noau PlugClean
-
-
-"Browse tabs
+" Browse tabs
 nnoremap <C-T> :tabnew<CR>  
 nnoremap <C-N> :tabnext<CR>
 nnoremap <C-P> :tabprev<CR>
 nnoremap <C-T>q :tabclose<CR>
-" Airline enable tabline
-let g:airline#extensions#tabline#enabled = 1
+
+" Lightline config
+let g:lightline = {
+  \ 'active': {
+  \     'left': [ ['mode', 'paste'],
+  \ ['readonly', 'filename', 'modified', 'coolchar'] ] },
+  \ 'component': {
+  \ 'coolchar': "\ue77d"
+  \ }
+  \ }
+
+let g:lightline.colorscheme = "nord"
+set laststatus=2
 
 " Modern c++ stuff
 let g:cpp_class_scope_highlight = 1
@@ -67,49 +64,40 @@ let g:cpp_concepts_highlight = 1
 let g:cpp_attributes_highlight = 1
 let g:cpp_member_highlight = 1
 
-" Startify custom header
+" Startify header
 let g:startify_custom_header = [
-	\'	_____	______	__      _	',
-	\'	  |		|				| \     |	',
-	\'	  |		|				|  \    |	',
+    \'	_____	______	__      _	',
+	\'	  |		|		| \     |	',
+	\'	  |		|		|  \    |	',
 	\'	  |		|  ___	|   \   |	',
 	\'	  |		|    |  |    \  |	',
 	\'	  |		|____|  |     \_|	',
 	\]
-" Map ; to NerdTreeToggle
-map ; :NERDTreeToggle<CR>
 
-" Remap vim leader to Space key
-let mapleader = "\<Space>"  
+let mapleader = "\<Space>"  " best Leader key ever 
 
-" Set split stuff
-set splitbelow
-set splitright
-
-" Random bindings for opening terminal and ranger inside terminal 
 nmap <silent> <Leader>c    :call TermOpen()<CR>
 nmap <silent> <Leader><Backspace> :call TermOpenRanger()<CR>
-" Return to Startify
+nmap <silent> <Leader>F		:NERDTreeToggle<CR>
 nmap <silent> <Leader>S		:Startify<CR>
 
-" Airline theme and stuff
-let g:airline_theme='gruvbox'
-let g:airline_powerline_fonts = 1
-
-" NerdTree stuff 
 let g:NERDTreeWinPos = "left"
 let NERDTreeQuitOnOpen = 1
-
-" Checks if NerdTree is the only one window and closes vim if so
 au vimenter * wincmd p
+" If there is only NERDTree, close it and close vim
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
-" Groff aliases | unix only for now
-nnoremap <silent> <Leader>m	:!mupdf -I $(dirname %)/output/output.pdf </dev/null &>/dev/null &<CR><CR>
-autocmd BufWritePost *.ms !groff -G -ms % -T pdf > output/output.pdf
+" Groff aliases
+nnoremap <silent> <Leader>m	:!mupdf -I $(dirname %)/%.pdf </dev/null &>/dev/null &<CR><CR>
+autocmd BufWritePost *.ms !groff -e -p -G -g -ms % -T pdf > output/output.pdf
+autocmd BufWritePost *.md !pandoc -s % -o %.pdf
+
+" LaTeX STUFF
+autocmd Filetype tex setl updatetime=1000
+let g:livepreview_previewer = 'mupdf.inotify'
+let g:livepreview_cursorhold = 0
 
 
-" DOWN BELOW THE COC.NVIM STUFF AND CONFIGS
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
@@ -227,26 +215,4 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " NOTE: Please see `:h coc-status` for integrations with external plugins that
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
-
-" Mappings for CoCList
-" Show all diagnostics.
-"nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
-" Manage extensions.
-"nnoremap <silent><nowait> <space>e  :<C-u>CocList extensions<cr>
-" Show commands.
-"nnoremap <silent><nowait> <space>c  :<C-u>CocList commands<cr>
-" Find symbol of current document.
-"nnoremap <silent><nowait> <space>o  :<C-u>CocList outline<cr>
-" Search workspace symbols.
-"nnoremap <silent><nowait> <space>s  :<C-u>CocList -I symbols<cr>
-" Do default action for next item.
-"nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
-" Do default action for previous item.
-"nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
-" Resume latest coc list.
-"nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
-
-" Least but not least-important Tabstop and Backspace key that sometimes needs
-" this config to work well
-set tabstop=2
-set backspace=indent,eol,start
+set tabstop=4 softtabstop=0 expandtab shiftwidth=2 smarttab
