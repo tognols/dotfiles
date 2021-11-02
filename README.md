@@ -12,6 +12,4 @@ To install groff macros: (they work in combo w/ vim).
 `mv groff ~/documents/groff`
 
 ## Scripts folder
-Install those scripts in your path.
-Eventually there will be a install.sh which install those scripts .local/bin and adds this to the PATH
-
+Run `scripts/install.sh` to create `~/.local/scripts` and place scripts in there.
