@@ -1,3 +1,4 @@
+require "custom.mappings"
 vim.api.nvim_exec([[
     let g:neovide_remember_window_size=v:true
     let g:neovide_refresh_rate=144
@@ -6,3 +7,5 @@ vim.api.nvim_exec([[
 ) -- Did not wanted to convert this stuff in lua so i just exec it in vimscript lmao
 
 vim.api.nvim_exec([[set guifont=PragmataPro:h16]], true)
+
+vim.api.nvim_exec([[let g:dashboard_default_executive='telescope']],true)
