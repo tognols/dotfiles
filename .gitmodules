@@ -1,3 +1,6 @@
 [submodule "nvchad.custom"]
 	path = nvchad.custom
 	url = https://github.com/tognols/nvchad.custom
+[submodule "spectrwm.config"]
+	path = spectrwm.config
+	url = https://github.com/tognols/spectrwm.config
