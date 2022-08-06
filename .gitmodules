@@ -4,3 +4,6 @@
 [submodule "spectrwm.config"]
 	path = spectrwm.config
 	url = https://github.com/tognols/spectrwm.config
+[submodule "emacs.d"]
+	path = emacs.d
+	url = https://github.com/tognols/emacs.d/
