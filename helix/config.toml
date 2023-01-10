@@ -1,0 +1,5 @@
+theme = "dark_plus"
+
+[keys.insert]
+"A-x" = "normal_mode"
+j = { k = "normal_mode" } # Maps `jk` to exit insert mode
