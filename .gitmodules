@@ -11,3 +11,6 @@
 	branch = main
 [submodule "spectrwm.config/"]
 	branch = main
+[submodule "hyprland"]
+	path = hyprland
+	url = https://github.com/tognols/hyprland.config
