@@ -7,3 +7,7 @@
 [submodule "emacs.d"]
 	path = emacs.d
 	url = https://github.com/tognols/emacs.d/
+[submodule "nvchad.custom/"]
+	branch = main
+[submodule "spectrwm.config/"]
+	branch = main
