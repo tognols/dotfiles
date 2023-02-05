@@ -1,0 +1,3 @@
+[submodule "spectrwm"]
+	path = spectrwm
+	url = https://github.com/conformal/spectrwm
