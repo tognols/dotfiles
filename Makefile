@@ -10,7 +10,7 @@ installer:
 	@echo "copied hyprland to ~/.config/hypr"
 	@cp -r helix ~/.config
 	@echo "copied helix to ~/.config"
-	@cp -r nvchad.custom ~/.config/nvim/lua/custom
+	@cp -r nvchad.custom/* ~/.config/nvim/lua/custom
 	@echo "copied nvchad.custom to ~/.config/nvim/lua/custom"
 
 fonts:
